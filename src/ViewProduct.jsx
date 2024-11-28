@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function ProductDiv() {
+
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -11,8 +12,8 @@ function ProductDiv() {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
+
             const products = await response.json();
-            console.log(products);
 
             setData(products);
             setLoading(false);
@@ -37,6 +38,7 @@ function ProductDiv() {
                 <Product
                     key={index}
                     name={product.name}
+                    description={product.description}
                     price={product.price}
 
                 />
@@ -50,6 +52,11 @@ function Product(props) {
         <div>
             <p>{props.name}</p>
             <p>${props.price}</p>
+            <p>{props.description}</p>
+            <div>
+                <button>Edit Product</button>
+                <button>Create a Order</button>
+            </div>
         </div>
     );
 }
