@@ -6,7 +6,7 @@ function ProductDiv() {
 
     const RenderProducts = async () => {
         try {
-            const response = await fetch('http://localhost:8080/api/products');
+            const response = await fetch('http://localhost:8081/products');
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -49,7 +49,6 @@ function Product(props) {
     return (
         <div>
             <p>{props.name}</p>
-
             <p>${props.price}</p>
         </div>
     );
