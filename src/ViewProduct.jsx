@@ -62,7 +62,7 @@ function Product(props) {
 
             <div className='nav'>
                 <nav>
-                    <Link to={'/updateproduct/${props.id}'}><button>Update Product</button></Link>
+                    <Link to={'/updateproduct/'+props.id}><button>Update Product</button></Link>
                     <Link to="#"><button>Create an Order</button></Link>
                 </nav>
 

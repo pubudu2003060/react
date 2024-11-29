@@ -10,7 +10,7 @@ function App() {
         
         <Route path="/" element={<ProductDiv />} />
         
-        <Route path="/updateproduct" element={<UpdateProductDiv />} />
+        <Route path="/updateproduct/:id" element={<UpdateProductDiv />} />
       </Routes>
     </Router>
    

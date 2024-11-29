@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import "./UpdateProduct.css";
+import { useParams } from "react-router-dom";
 
 
-function UpdateProduct(id) {
+function UpdateProduct() {
+
+    const id = useParams().id;
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
