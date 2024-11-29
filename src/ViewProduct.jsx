@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import UpdateProductDiv from "./UpdateProduct"
+import "./ViewProduct.css";
 
 function ProductDiv() {
 
@@ -32,31 +35,45 @@ function ProductDiv() {
     }
 
     return (
-        <div>
+        <div className='main'>
             <h2>Product List</h2>
-            {data.map((product, index) => (
-                <Product
-                    key={index}
-                    name={product.name}
-                    description={product.description}
-                    price={product.price}
+            <div className="product-list">
 
-                />
-            ))}
+                {data.map((product, index) => (
+                    <Product
+                        key={index}
+                        name={product.name}
+                        description={product.description}
+                        price={product.price}
+                        id={product.id}
+                    />
+                ))}
+            </div>
         </div>
+
     );
 }
 
 function Product(props) {
     return (
-        <div>
+        <div className='product-box'>
             <p>{props.name}</p>
             <p>${props.price}</p>
             <p>{props.description}</p>
-            <div>
-                <button>Edit Product</button>
-                <button>Create a Order</button>
-            </div>
+
+            
+                <div className='nav'>
+                    <nav>
+                        <Link to="/updateproduct"><button>Update Product</button></Link>
+                        <Link to="/about"><button>Create an Order</button></Link>
+                    </nav>
+
+                  
+                        
+                  
+                </div>
+          
+
         </div>
     );
 }

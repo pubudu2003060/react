@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import "./UpdateProduct.css";
+
 
 function UpdateProduct(id) {
 
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(True);
+    const [loading, setLoading] = useState(true);
 
     const renderProduct = async () => {
         try {
@@ -47,7 +49,8 @@ function UpdateProductDiv(props) {
 
             <div>
                 <label htmlFor="description">Description: </label>
-                <input type="text" name="description" id="description" value={props.description}/>
+                <textarea type="text" name="description" id="description">{props.description}</textarea>
+
             </div>
 
             <div>
@@ -58,3 +61,5 @@ function UpdateProductDiv(props) {
         </div>
     )
 }
+
+export default UpdateProductDiv;
