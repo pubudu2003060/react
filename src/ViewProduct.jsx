@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import UpdateProductDiv from "./UpdateProduct"
 import "./ViewProduct.css";
 
 function ProductDiv() {
@@ -61,18 +60,14 @@ function Product(props) {
             <p>${props.price}</p>
             <p>{props.description}</p>
 
-            
-                <div className='nav'>
-                    <nav>
-                        <Link to="/updateproduct"><button>Update Product</button></Link>
-                        <Link to="/about"><button>Create an Order</button></Link>
-                    </nav>
+            <div className='nav'>
+                <nav>
+                    <Link to={'/updateproduct/${props.id}'}><button>Update Product</button></Link>
+                    <Link to="#"><button>Create an Order</button></Link>
+                </nav>
 
-                  
-                        
-                  
-                </div>
-          
+            </div>
+
 
         </div>
     );
