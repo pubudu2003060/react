@@ -9,7 +9,7 @@ function ProductDiv() {
 
     const RenderProducts = async () => {
         try {
-            const response = await fetch('http://localhost:8081/products');
+            const response = await fetch('http://localhost:8081/getproducts');
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
