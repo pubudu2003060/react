@@ -8,8 +8,6 @@ import java.util.Optional;
 
 //Indicates that this class is a Spring MVC controller and that the return values of methods should be automatically serialized to JSON.
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
-//Allows cross-origin requests from a specific frontend, which is important for enabling the frontend running on a different port to communicate with the backend.
 public class ProductController {
 
     private ProductRepository productRepository;
@@ -19,22 +17,22 @@ public class ProductController {
         this.productRepository = productRepository;
     }
 
-    @GetMapping("/products")
+    @GetMapping("/getproducts")
     public List<Product> getAllProducts() {
 
         return productRepository.findAll();
 
     }
 
-    @GetMapping("/products/{id}")
-    public Optional<Product> getProduct(@PathVariable("id") int id){//pp
+    @GetMapping("/getproduct/{id}")
+    public Optional<Product> getProduct(@PathVariable("id") int id){
 
         return productRepository.findById(id);
 
     }
 
 
-    @PostMapping("/products")
+    @PostMapping("/addproduct")
     public Product addProduct(@RequestBody Product product) { //Binds the request body of an HTTP request to a method parameter
 
         productRepository.save(product);
@@ -43,7 +41,7 @@ public class ProductController {
 
     }
 
-    @PutMapping("/product/{id}")
+    @PutMapping("/editproduct/{id}")
     public Product editProduct(@PathVariable("id") int id,  @RequestBody Product product) throws Exception {
 
         Product exitproduct = productRepository.findById(id).orElseThrow(() -> new Exception("Product not found with id: " + id));
